@@ -7,17 +7,12 @@ class Sinema():
         self.db = db.dbClass()
         self.sorgular()
         self.anaPencere()
-
         self.pencere.mainloop()
     def sorgular(self):
         # veritabanı bağlantısını açtım
         self.db.connect()
-
         # film isimlerini çekip bir değişkene koydum
         self.film1dbAdi = self.db.filmAdi(1)
-        # print(self.film1dbAdi)
-        # self.film1dbAdi = list(self.film1dbAdiTuple)
-        # print(self.film1dbAdi)
         self.film2dbAdi = self.db.filmAdi(2)
         # self.film2dbAdi = list(self.film2dbAdi)
         self.film3dbAdi = self.db.filmAdi(3)
@@ -44,16 +39,7 @@ class Sinema():
         self.film5tur = self.db.turCek(self.film5dbAdi)
         self.film6tur = self.db.turCek(self.film6dbAdi)
 
-        self.film1koltuk = self.db.filmKoltukCek(self.film1dbAdi)
-        self.film2koltuk = self.db.filmKoltukCek(self.film2dbAdi)
-        self.film3koltuk = self.db.filmKoltukCek(self.film3dbAdi)
-        self.film4koltuk = self.db.filmKoltukCek(self.film4dbAdi)
-        self.film5koltuk = self.db.filmKoltukCek(self.film5dbAdi)
-        self.film6koltuk = self.db.filmKoltukCek(self.film6dbAdi)
-
-
         self.db.disconnect()
-
         # veritabanı bağlantısını kapattım
     def koltukSil(self,filmAd):
 
@@ -65,8 +51,6 @@ class Sinema():
         except:
             messagebox.showerror("Hata","Bir Hata Oluştu")
 
-        
-    
     def anaPencere(self):
         self.pencere = tk.Tk()
         self.pencere.title("Sinema")
@@ -84,48 +68,49 @@ class Sinema():
         self.filmButon5resim = tk.PhotoImage(file="5.png")
         self.filmButon6resim = tk.PhotoImage(file="6.png")
 
-        self.filmButon1 = tk.Button(self.pencere,image=self.filmButon1resim,width=160,height=300,foreground="#181717",bg="#DC170D",command=self.film1)
+        self.filmButon1 = tk.Button(self.pencere,image=self.filmButon1resim,width=160,height=300,foreground="#181717",bg="#F3F9D2",command=self.film1)
         self.filmButon1.place(x=100,y=0)
-        self.film1Baslik = tk.Label(self.pencere,text=self.film1dbAdi,font=("Arial",12,"bold"),height=2,background="#181717",foreground="white",width=16)
+        self.film1Baslik = tk.Label(self.pencere,text=self.film1dbAdi,font=("Arial",12,"bold"),height=2,background="#282927",foreground="white",width=16)
         self.film1Baslik.place(x=100,y=270)
-        self.film1DetayButon = tk.Button(self.pencere,text="Detay",background="white",foreground="#181717",width=5,height=2,command=self.film1Detay)
+        self.film1DetayButon = tk.Button(self.pencere,text="Detay",background="#282927",foreground="#BDC4A7",width=5,height=2,command=self.film1Detay)
+       
         self.film1DetayButon.place(x=100,y=3)
         
-        self.filmButon2 = tk.Button(self.pencere,image=self.filmButon2resim,width=160,height=300,foreground="#181717",bg="#DC170D",command=self.film2)
+        
+        self.filmButon2 = tk.Button(self.pencere,image=self.filmButon2resim,width=160,height=300,foreground="#181717",bg="#F3F9D2",command=self.film2)
         self.filmButon2.place(x=300,y=0)
-        self.film2Baslik = tk.Label(self.pencere,text=self.film2dbAdi,font=("Arial",12,"bold"),height=2,background="#181717",foreground="white",width=16)
+        self.film2Baslik = tk.Label(self.pencere,text=self.film2dbAdi,font=("Arial",12,"bold"),height=2,background="#282927",foreground="white",width=16)
         self.film2Baslik.place(x=300,y=270)
-        self.film2DetayButon = tk.Button(self.pencere,text="Detay",background="white",foreground="#181717",width=5,height=2,command=self.film2Detay)
+        self.film2DetayButon = tk.Button(self.pencere,text="Detay",background="#282927",foreground="#BDC4A7",width=5,height=2,command=self.film2Detay)
         self.film2DetayButon.place(x=300,y=3)
 
-        self.filmButon3 = tk.Button(self.pencere,image=self.filmButon3resim,width=160,height=300,foreground="#181717",bg="#DC170D",command=self.film3)
+        self.filmButon3 = tk.Button(self.pencere,image=self.filmButon3resim,width=160,height=300,foreground="#181717",bg="#F3F9D2",command=self.film3)
         self.filmButon3.place(x=500,y=0)
-        self.film3Baslik = tk.Label(self.pencere,text=self.film3dbAdi,font=("Arial",12,"bold"),height=2,background="#181717",foreground="white",width=16)
+        self.film3Baslik = tk.Label(self.pencere,text=self.film3dbAdi,font=("Arial",12,"bold"),height=2,background="#282927",foreground="white",width=16)
         self.film3Baslik.place(x=500,y=270)
-        self.film3DetayButon = tk.Button(self.pencere,text="Detay",background="white",foreground="#181717",width=5,height=2,command=self.film3Detay)
+        self.film3DetayButon = tk.Button(self.pencere,text="Detay",background="#282927",foreground="#BDC4A7",width=5,height=2,command=self.film3Detay)
         self.film3DetayButon.place(x=500,y=3)
 
-        self.filmButon4 = tk.Button(self.pencere,image=self.filmButon4resim,width=160,height=300,foreground="#181717",bg="#DC170D",command=self.film4)
+        self.filmButon4 = tk.Button(self.pencere,image=self.filmButon4resim,width=160,height=300,foreground="#181717",bg="#F3F9D2",command=self.film4)
         self.filmButon4.place(x=100,y=350)
-        self.film4Baslik = tk.Label(self.pencere,text=self.film4dbAdi,font=("Arial",12,"bold"),height=2,background="#181717",foreground="white",width=16)
+        self.film4Baslik = tk.Label(self.pencere,text=self.film4dbAdi,font=("Arial",12,"bold"),height=2,background="#282927",foreground="white",width=16)
         self.film4Baslik.place(x=100,y=620)
-        self.film4DetayButon = tk.Button(self.pencere,text="Detay",background="white",foreground="#181717",width=5,height=2,command=self.film4Detay)
+        self.film4DetayButon = tk.Button(self.pencere,text="Detay",background="#282927",foreground="#BDC4A7",width=5,height=2,command=self.film4Detay)
         self.film4DetayButon.place(x=100,y=353)
 
-        self.filmButon5 = tk.Button(self.pencere,image=self.filmButon5resim,width=160,height=300,foreground="#181717",bg="#DC170D",command=self.film5)
+        self.filmButon5 = tk.Button(self.pencere,image=self.filmButon5resim,width=160,height=300,foreground="#181717",bg="#F3F9D2",command=self.film5)
         self.filmButon5.place(x=300,y=350)
-        self.film5Baslik = tk.Label(self.pencere,text=self.film5dbAdi,font=("Arial",12,"bold"),height=2,background="#181717",foreground="white",width=16)
+        self.film5Baslik = tk.Label(self.pencere,text=self.film5dbAdi,font=("Arial",12,"bold"),height=2,background="#282927",foreground="white",width=16)
         self.film5Baslik.place(x=300,y=620)
-        self.film5DetayButon = tk.Button(self.pencere,text="Detay",background="white",foreground="#181717",width=5,height=2,command=self.film5Detay)
+        self.film5DetayButon = tk.Button(self.pencere,text="Detay",background="#282927",foreground="#BDC4A7",width=5,height=2,command=self.film5Detay)
         self.film5DetayButon.place(x=300,y=353)
 
-        self.filmButon6 = tk.Button(self.pencere,image=self.filmButon6resim,width=160,height=300,foreground="#181717",bg="#DC170D",command=self.film6)
+        self.filmButon6 = tk.Button(self.pencere,image=self.filmButon6resim,width=160,height=300,foreground="#181717",bg="#F3F9D2",command=self.film6)
         self.filmButon6.place(x=500,y=350)
-        self.film6Baslik = tk.Label(self.pencere,text=self.film6dbAdi,font=("Arial",12,"bold"),height=2,background="#181717",foreground="white",width=16)
+        self.film6Baslik = tk.Label(self.pencere,text=self.film6dbAdi,font=("Arial",12,"bold"),height=2,background="#282927",foreground="white",width=16)
         self.film6Baslik.place(x=500,y=620)
-        self.film6DetayButon = tk.Button(self.pencere,text="Detay",background="white",foreground="#181717",width=5,height=2,command=self.film6Detay)
+        self.film6DetayButon = tk.Button(self.pencere,text="Detay",background="#282927",foreground="#BDC4A7",width=5,height=2,command=self.film6Detay)
         self.film6DetayButon.place(x=500,y=353)
-        
     def film1Detay(self):
         self.film1DetayPencere = tk.Toplevel(self.pencere)
         self.film1DetayPencere.title(f"{self.film1dbAdi} konusu")
@@ -212,15 +197,13 @@ class Sinema():
         # kapatma butonu
         self.kapatmaButon = tk.Button(self.film1Pencere, text="Kapat",bg="#DC170D",fg="#E6E5D7",width=10,height=2,command=self.film1Pencere.destroy)
         self.kapatmaButon.grid(row=10, column=0, columnspan=5, pady=10)
-        # print(self.film1dbAdi)
         self.koltuklariSilmeButon = tk.Button(self.film1Pencere, text="Koltukları Sil",fg="#E6E5D7",bg="#DC170D",height=2,command=lambda :self.koltukSil(self.film1dbAdi))
         self.koltuklariSilmeButon.grid(row=10, column=5, columnspan=6, pady=10)
 
         self.film1TurLabel = tk.Label(self.film1Pencere, text=f"Tür: {self.film1tur}",fg="#E6E5D7",bg="#DC170D",height=2)
         self.film1TurLabel.grid(row=1, column=15, columnspan=2, padx=50)
 
-        secilenKoltukBilgiButon = tk.Button(self.film1Pencere, text="Seçilen Koltuk Bilgileri",fg="#E6E5D7",bg="#DC170D",height=2,command=lambda :self.secilenKoltuklarıGosterenPencere(self.film1Pencere))
-        secilenKoltukBilgiButon.grid(row=2, column=15, columnspan=2, padx=50)
+ 
         self.film1Pencere.grab_set()
         self.film1Pencere.focus_set()
 
@@ -241,13 +224,12 @@ class Sinema():
         # kapatma butonu
         self.kapatmaButon = tk.Button(self.film2Pencere, text="Kapat",bg="#DC170D",width=10,height=2,command=self.film2Pencere.destroy)
         self.kapatmaButon.grid(row=10, column=0, columnspan=5, pady=10)
-        # print(self.film1dbAdi)
         self.koltuklariSilmeButon = tk.Button(self.film2Pencere, text="Koltukları Sil",bg="#DC170D",width=10,height=2,command=lambda :self.koltukSil(self.film2dbAdi))
         self.koltuklariSilmeButon.grid(row=10, column=5, columnspan=6, pady=10)
 
         self.film2TurLabel = tk.Label(self.film2Pencere, text=f"Tür: {self.film2tur}",bg="#DC170D",fg="white",height=2)
         self.film2TurLabel.grid(row=1, column=15, columnspan=2, padx=50)
-
+ 
         self.film2Pencere.grab_set()
         self.film2Pencere.focus_set()
 
@@ -268,7 +250,6 @@ class Sinema():
         # kapatma butonu
         self.kapatmaButon = tk.Button(self.film3Pencere, text="Kapat",bg="#DC170D",width=10,height=2,command=self.film3Pencere.destroy)
         self.kapatmaButon.grid(row=10, column=0, columnspan=5, pady=10)
-        # print(self.film1dbAdi)
         self.koltuklariSilmeButon = tk.Button(self.film3Pencere, text="Koltukları Sil",bg="#DC170D",width=10,height=2,command=lambda :self.koltukSil(self.film3dbAdi))
         self.koltuklariSilmeButon.grid(row=10, column=5, columnspan=6, pady=10)
 
@@ -296,7 +277,6 @@ class Sinema():
         # kapatma butonu
         self.kapatmaButon = tk.Button(self.film4Pencere, text="Kapat",bg="#DC170D",width=10,height=2,command=self.film4Pencere.destroy)
         self.kapatmaButon.grid(row=10, column=0, columnspan=5, pady=10)
-        # print(self.film1dbAdi)
         self.koltuklariSilmeButon = tk.Button(self.film4Pencere, text="Koltukları Sil",bg="#DC170D",width=10,height=2,command=lambda :self.koltukSil(self.film4dbAdi))
         self.koltuklariSilmeButon.grid(row=10, column=5, columnspan=6, pady=10)
 
@@ -323,7 +303,6 @@ class Sinema():
         # kapatma butonu
         self.kapatmaButon = tk.Button(self.film5Pencere, text="Kapat",bg="#DC170D",width=10,height=2,command=self.film5Pencere.destroy)
         self.kapatmaButon.grid(row=10, column=0, columnspan=5, pady=10)
-        # print(self.film1dbAdi)
         self.koltuklariSilmeButon = tk.Button(self.film5Pencere, text="Koltukları Sil",bg="#DC170D",width=10,height=2,command=lambda :self.koltukSil(self.film5dbAdi))
         self.koltuklariSilmeButon.grid(row=10, column=5, columnspan=6, pady=10)
 
@@ -350,7 +329,6 @@ class Sinema():
         # kapatma butonu
         self.kapatmaButon = tk.Button(self.film6Pencere, text="Kapat",bg="#DC170D",width=10,height=2,command=self.film6Pencere.destroy)
         self.kapatmaButon.grid(row=10, column=0, columnspan=5, pady=10)
-        # print(self.film1dbAdi)
         self.koltuklariSilmeButon = tk.Button(self.film6Pencere, text="Koltukları Sil",bg="#DC170D",width=10,height=2,command=lambda :self.koltukSil(self.film6dbAdi))
         self.koltuklariSilmeButon.grid(row=10, column=5, columnspan=6, pady=10)
 
@@ -417,12 +395,8 @@ class Sinema():
         self.filmMenu = tk.Menu(self.menu)
         self.menu.add_cascade(label="Hakkında", menu=self.filmMenu)
         self.filmMenu.add_command(label="Tanıtım",command=self.tanıtım)
-        self.filmMenu.add_command(label="Hakkımda")
         self.filmMenu.add_separator()
         self.filmMenu.add_command(label="Çıkış",command=pencere.destroy)
-        self.salonMenu = tk.Menu(self.menu)
-        self.menu.add_cascade(label="Salon", menu=self.salonMenu)
-        self.salonMenu.add_command(label="Salon Ekle")
 
     def tanıtım(self):
         self.tanıtımPencere = tk.Toplevel(self.pencere)
@@ -442,24 +416,5 @@ class Sinema():
         icerikText.insert(tk.END, "Veritabanı Final Ödevi")
         self.tanıtımPencere.mainloop()
 
-    def secilenKoltuklarıGosterenPencere(self,pencere):
-        self.secilenKoltuklarPencere = tk.Toplevel(pencere)
-        self.secilenKoltuklarPencere.title("Seçilen Koltuklar")
-        self.secilenKoltuklarPencere.geometry("600x600")
-        self.secilenKoltuklarPencere.configure(background="#DC170D")
-        self.secilenKoltuklarPencere.resizable(False,False)
-        self.secilenKoltuklarPencere.grab_set()
-        self.secilenKoltuklarPencere.focus_set()
-        self.secilenKoltuklarPencere.transient(pencere)
-        self.secilenKoltuklarPencere.protocol("WM_DELETE_WINDOW", self.secilenKoltuklarPencere.destroy)
-        koltukYazdir = tk.Label(self.secilenKoltuklarPencere, text="Seçilen Koltuklar:",font="Arial,20,'bold','underline'",bg="#181717",fg="#E6E5D7",width=23,height=2)
-        koltukYazdir.grid(row=0,column=0)
-        koltukText = tk.Text(self.secilenKoltuklarPencere, width=50, height=30)
-        koltukText.grid(row=1,column=0)
-        koltukText.insert(tk.END, "Seçilen Koltuklar:\n")
-        koltukText.insert(tk.END, self.film1koltuk)
         
-
-        self.secilenKoltuklarPencere.mainloop()
 sinema = Sinema()
-

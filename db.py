@@ -6,7 +6,7 @@ class dbClass:
         self.database = 'sinemaDB'  # veritabanının adı
         self.username = 'sa'  # veritabanı kullanıcı adı
         self.password = '123'  # veritabanı parolası
-        
+
 
     def connect(self):
         self.conn = pypyodbc.connect("DRIVER={SQL Server};"+f" Server={self.server};User={self.username};Password={self.password};Database={self.database};")
@@ -62,11 +62,11 @@ class dbClass:
         self.conn.close()
 
     def turCek(self,filmAd):
-        self.turler = []
+        
         self.sorgu = self.cursor.execute(f"select tur from filmler where adi = '{filmAd}'")
         self.sorgu = self.cursor.fetchall()
         for sütun in self.sorgu:
-            self.turler.append(sütun[0])
+            self.turler=sütun[0]
         return self.turler
 
     def filmKoltukCek(self,filmAd):
