@@ -402,7 +402,7 @@ class Sinema():
         self.tanıtımPencere = tk.Toplevel(self.pencere)
         self.tanıtımPencere.title("Tanıtım")
         self.tanıtımPencere.geometry("600x600")
-        self.tanıtımPencere.configure(background="#DC170D")
+        self.tanıtımPencere.configure(background="#181717")
         self.tanıtımPencere.resizable(False,False)
         self.tanıtımPencere.grab_set()
         self.tanıtımPencere.focus_set()
@@ -414,6 +414,8 @@ class Sinema():
         icerikText.insert(tk.END, "Hamza ORTATEPE\n")
         icerikText.insert(tk.END, "No: 90210000172\n")
         icerikText.insert(tk.END, "Veritabanı Final Ödevi")
+        icerikText.config(state=tk.DISABLED)
+        icerikText.config(bg="#ffffff",fg="#353535")
         self.tanıtımPencere.mainloop()
 
         
