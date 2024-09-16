@@ -5,3 +5,4 @@
 /yapılacaklar.txt
 /__pycache__
 /.gitignore
+venv/

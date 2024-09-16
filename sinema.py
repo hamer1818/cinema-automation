@@ -1,9 +1,16 @@
 import tkinter as tk
 from tkinter import messagebox
 import db as db
+import dbSetup as dbSetup
 # import pencereMenu as menu
 class Sinema():
     def __init__(self):
+        # Veritabanı oluşturma ve tabloları oluşturma işlemi
+        self.dbSetup = dbSetup.dbSetup()
+        self.dbSetup.connect()
+        self.dbSetup.create_database()
+        self.dbSetup.create_tables()
+        self.dbSetup.disconnect()
         self.db = db.dbClass()
         self.sorgular()
         self.anaPencere()
